@@ -1,0 +1,30 @@
+package com.mrseo3o3.pjt_solo.service;
+
+import com.mrseo3o3.pjt_solo.domain.User;
+import com.mrseo3o3.pjt_solo.repository.UserDao;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserServiceImpl {
+
+    private final UserDao userDao;
+
+    @Autowired
+    public UserServiceImpl(UserDao userDao) {
+        this.userDao = userDao;
+    }
+
+    // UserService method
+    public int getUserCount() {
+        return this.userDao.getUserCount();
+    }
+
+    public int getUserOne(String email) {
+        return this.userDao.hasUser(email);
+    }
+
+    public int addUserOne(User user) {
+        return this.userDao.addUserOne(user);
+    }
+}
