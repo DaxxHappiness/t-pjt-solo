@@ -1,6 +1,6 @@
 package com.mrseo3o3.pjt_solo.repository;
 
-import com.mrseo3o3.pjt_solo.domain.User;
+import com.mrseo3o3.pjt_solo.domain.dto.UserDto;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -17,5 +17,5 @@ public interface UserDao {
 
     @Insert("insert into users (email, password, name, phone) " +
             "values(#{user.email}, #{user.password}, #{user.name}, #{user.phone})")
-    int addUserOne(@Param("user")User user);
+    int addUserOne(@Param("user")UserDto userDto);
 }

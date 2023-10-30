@@ -1,4 +1,4 @@
-package com.mrseo3o3.pjt_solo.domain;
+package com.mrseo3o3.pjt_solo.domain.dto;
 
 import lombok.*;
 
@@ -8,7 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @ToString
 @Builder
-public class User {
+public class UserDto {
     private Long uid;
     private String email;
     private String password;

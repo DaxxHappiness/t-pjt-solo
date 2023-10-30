@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -7,5 +7,8 @@
 <body>
 <h2> this is main page</h2>
 <a href="index.html">back to the first page</a>
+<button th:onclick="|location.href='/login'|">Sign in</button>
+<button th:onclick="|location.href='/login'|">Log out</button>
+<button th:onclick="|location.href='/board/list'|">Board</button>
 </body>
 </html>

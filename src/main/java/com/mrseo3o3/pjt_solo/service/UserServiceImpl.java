@@ -1,6 +1,6 @@
 package com.mrseo3o3.pjt_solo.service;
 
-import com.mrseo3o3.pjt_solo.domain.User;
+import com.mrseo3o3.pjt_solo.domain.dto.UserDto;
 import com.mrseo3o3.pjt_solo.repository.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,7 +24,7 @@ public class UserServiceImpl {
         return this.userDao.hasUser(email);
     }
 
-    public int addUserOne(User user) {
-        return this.userDao.addUserOne(user);
+    public int addUserOne(UserDto userDto) {
+        return this.userDao.addUserOne(userDto);
     }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -7,9 +7,20 @@
 <body>
 <h2> this is board list page </h2>
 
-<table>
+<table border="1">
   <tr>
-    <th
+    <th>no</th>
+    <th>Subject</th>
+    <th>Author</th>
+    <th>RegDate</th>
+    <th>Views</th>
+  </tr>
+  <tr th:each="board : ${boardList}">
+    <td th:text="${board.bno}"></td>
+    <td th:text="${board.subject}"></td>
+    <td th:text="${board.author}"></td>
+    <td th:text="${board.reg_date}"></td>
+    <td th:text="${board.views}"></td>
   </tr>
 </table>
 </body>
