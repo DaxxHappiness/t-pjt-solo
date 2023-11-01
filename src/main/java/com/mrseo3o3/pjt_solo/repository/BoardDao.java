@@ -11,7 +11,7 @@ public interface BoardDao {
     @Delete("truncate TABLE board")
     void deleteAllBoard();
 
-    @Select("select * from board")
+    @Select("select * from board order by bno desc")
     List<BoardDto> getList();
 
     @Insert("INSERT INTO board " +
@@ -19,4 +19,7 @@ public interface BoardDao {
             "VALUES " +
             "(#{board.subject}, #{board.content}, #{board.author}, now())")
     int addBoard(@Param("board") BoardDto boardDto);
+
+    @Select("select * from board where bno = #{bno}")
+    BoardDto getBoard(Long bno);
 }

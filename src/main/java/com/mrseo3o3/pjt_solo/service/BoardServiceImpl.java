@@ -23,5 +23,9 @@ public class BoardServiceImpl {
         return list;
     }
 
+    public BoardDto getBoardOne(Long bno) {
+        return this.boardDao.getBoard(bno);
+    }
+
 
 }

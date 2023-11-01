@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.PostConstruct;
@@ -23,6 +24,27 @@ public class BoardController {
         List<BoardDto> boardList = this.boardService.getBoardList();
         model.addAttribute("boardList", boardList);
         return "board/boardList";
+    }
+
+    @GetMapping("/write")
+    public String boardWriteForm() {
+        return "board/boardWrite";
+    }
+
+    @PostMapping("/write")
+    public String addBoard(BoardDto boardDto, Model model) {
+        if (boardDto == null) {
+            model.addAttribute("boardDto", boardDto);
+            return "redirect:/board/write";
+        }
+        return "redirect:/board/list";
+    }
+
+    @GetMapping("/read")
+    public String boardRead(Long bno, Model model) {
+        BoardDto boardDto = boardService.getBoardOne(bno);
+        model.addAttribute("boardDto", boardDto);
+        return "board/board";
     }
 
 }
