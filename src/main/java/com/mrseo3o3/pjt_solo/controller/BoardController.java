@@ -42,6 +42,7 @@ public class BoardController {
 
     @GetMapping("/read")
     public String boardRead(Long bno, Model model) {
+        System.out.println("boardRead()");
         BoardDto boardDto = boardService.getBoardOne(bno);
         model.addAttribute("boardDto", boardDto);
         return "board/board";

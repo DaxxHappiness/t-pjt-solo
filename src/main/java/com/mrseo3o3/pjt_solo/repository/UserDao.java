@@ -15,6 +15,9 @@ public interface UserDao {
     @Select("select count(*) from users where email = #{email}")
     int hasUser(String email);
 
+    @Select("select * from users where email = #{email}")
+    UserDto getUserOne(String email);
+
     @Insert("insert into users (email, password, name, phone) " +
             "values(#{user.email}, #{user.password}, #{user.name}, #{user.phone})")
     int addUserOne(@Param("user")UserDto userDto);

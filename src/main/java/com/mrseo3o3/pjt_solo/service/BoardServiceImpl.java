@@ -24,6 +24,7 @@ public class BoardServiceImpl {
     }
 
     public BoardDto getBoardOne(Long bno) {
+        System.out.println("getBoard: "+this.boardDao.getBoard(bno));
         return this.boardDao.getBoard(bno);
     }
 

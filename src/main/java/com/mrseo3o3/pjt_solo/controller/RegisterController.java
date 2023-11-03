@@ -41,7 +41,7 @@ public class RegisterController {
     }
 
     private boolean registerCheck(String email) {
-        int rowCnt = this.userService.getUserOne(email);
+        int rowCnt = this.userService.getUserCheck(email);
         return rowCnt == 0;
     }
 }

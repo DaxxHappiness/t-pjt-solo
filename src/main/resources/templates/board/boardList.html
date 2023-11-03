@@ -6,7 +6,7 @@
 </head>
 <body>
 <h2> this is board list page </h2>
-
+<button onclick="location.href='/main'">Home</button>
 <table border="1">
   <tr>
     <th>no</th>
@@ -17,7 +17,7 @@
   </tr>
   <tr th:each="board : ${boardList}">
     <td th:text="${board.bno}"></td>
-    <td th:text="${board.subject}"></td>
+    <td ><a th:href="@{/board/read(bno=${board.bno})}" th:text="${board.subject}"></a></td>
     <td th:text="${board.author}"></td>
     <td th:text="${board.reg_date}"></td>
     <td th:text="${board.views}"></td>

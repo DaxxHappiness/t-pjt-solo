@@ -20,8 +20,12 @@ public class UserServiceImpl {
         return this.userDao.getUserCount();
     }
 
-    public int getUserOne(String email) {
+    public int getUserCheck(String email) {
         return this.userDao.hasUser(email);
+    }
+
+    public UserDto getUserOne(String email) {
+        return this.userDao.getUserOne(email);
     }
 
     public int addUserOne(UserDto userDto) {

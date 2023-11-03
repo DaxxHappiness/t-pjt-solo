@@ -6,9 +6,14 @@
 </head>
 <body>
 <h2> this is main page</h2>
-<a href="index.html">back to the first page</a>
-<button th:onclick="|location.href='/login'|">Sign in</button>
-<button th:onclick="|location.href='/login'|">Log out</button>
+
+<th:block th:unless="${#session != null && #session.getAttribute('isLogin') == true}">
+    <button th:onclick="|location.href='/login'|">Sign in</button>
+</th:block>
+<th:block th:if="${#session != null && #session.getAttribute('isLogin') == true}">
+    <button th:onclick="|location.href='/logout'|">Log out</button>
+</th:block>
 <button th:onclick="|location.href='/board/list'|">Board</button>
+<a href="/index">back to the first page</a>
 </body>
 </html>
