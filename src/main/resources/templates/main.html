@@ -7,7 +7,7 @@
 <body>
 <h2> this is main page</h2>
 
-<th:block th:unless="${#session != null && #session.getAttribute('isLogin') == true}">
+<th:block th:if="${#session == null}">
     <button th:onclick="|location.href='/login'|">Sign in</button>
 </th:block>
 <th:block th:if="${#session != null && #session.getAttribute('isLogin') == true}">

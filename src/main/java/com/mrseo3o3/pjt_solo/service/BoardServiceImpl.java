@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class BoardServiceImpl {
@@ -17,8 +18,18 @@ public class BoardServiceImpl {
         this.boardDao = boardDao;
     }
 
-    public List<BoardDto> getBoardList() {
+    public int getCount() {
+        return this.boardDao.count();
+    }
+
+    public List<BoardDto> getList() {
         List<BoardDto> list = this.boardDao.getList();
+        System.out.println("list: "+list);
+        return list;
+    }
+
+    public List<BoardDto> getBoardList(Map map) {
+        List<BoardDto> list = this.boardDao.getBoardList(map);
         System.out.println("list: "+list);
         return list;
     }

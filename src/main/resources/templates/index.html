@@ -7,6 +7,14 @@
 <body>
 <h2> this is test page </h2>
 <h3 th:text="${userCnt}"></h3>
-<button type="button" th:onclick="|location.href='/login'|">Sign in</button>
+<th:block th:if="${#session == null}">
+    <button type="button" th:onclick="|location.href='/login'|">Sign in</button>
+</th:block>
+<th:block th:if="${#session != null && #session.getAttribute('isLogin') == true}">
+    <button type="button" th:onclick="|location.href='/logout'|">Log out</button>
+</th:block>
+<th:block th:if="${#session != null && #session.getAttribute('isLogin') == true}">
+    <button type="button" th:onclick="|location.href='/login'|">Main</button>
+</th:block>
 </body>
 </html>
